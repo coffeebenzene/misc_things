@@ -1,0 +1,32 @@
+# These are direct mappings of variables to values, do not change the variable names.
+
+# File containing time lines
+timeline_filename: timelines.txt
+
+# File containing the class time tables
+timetable_filename: class_timetable.txt
+
+# Problem number. In week.category format. Generally X.6 is concept quiz, X.7 is programming test.
+#problem_num: 5.6
+problem_num: 5.7
+
+# Duration in min
+#duration: 10
+duration: 15
+
+# Which lesson of the week
+#lesson: 1
+lesson: 3
+
+# Start/end of the lesson.  "s" for start, "e" for end.
+start: s
+
+# Date of monday for the week in YYYY-MM-DD format. Will be converted to previous monday if is not a monday.
+monday_date: 2017-02-20
+
+# Associated cohorts to the problem index i, where i is X.X.i in problem number.
+# All indexes must be entered.
+# In format of index:cohort&cohort, ...
+# First line is default for concept quiz, second is programming test.
+#association: 1:1&9, 2:2&3, 3:4, 4:7, 5:5&8, 6:6
+association: 1:1&7, 2:5&6, 3:2&9, 4:3, 5:4, 6:8
