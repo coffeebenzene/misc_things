@@ -192,8 +192,15 @@ try:
     # Check each problem id opens at only 1 timing.
     for problem_id, cohorts in id_cohort_proper.items():
         if len(set(cohorts.values())) != 1:
+            timings = []
+            for time_range in set(cohorts.values()):
+                timings.append(time_range[0].strftime("%H:%M %y-%m-%d %a"))
+                timings.append(" to ")
+                timings.append(time_range[1].strftime("%H:%M %y-%m-%d %a"))
+                timings.append("\n")
+            timings = "".join(timings)
             warnings.append(("{} has more than 1 release timing.".format(problem_id),
-                             "timings: {}".format(set(cohorts.values()))
+                             "timings:\n{}".format(timings)
                             ))
     # Check if associations match given associations
     for problem_id, cohorts in id_cohort_proper.items():
@@ -229,8 +236,8 @@ try:
     for problem_id, cohorts in id_cohort_proper.items():
         lines.append("Wk{}".format(problem_id))
         for c, times in cohorts.items():
-            starttime = times[0].strftime("%H:%M")
-            endtime = times[1].strftime("%H:%M")
+            starttime = times[0].strftime("%H:%M %y-%m-%d %a")
+            endtime = times[1].strftime("%H:%M %y-%m-%d %a")
             lines.append("    {}: {} to {}".format(c, starttime, endtime))
         lines.append("")
     print("\n".join(lines))
